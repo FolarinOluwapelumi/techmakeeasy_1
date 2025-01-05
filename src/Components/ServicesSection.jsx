@@ -15,7 +15,7 @@ const ServicesSection = () => {
       title: "Software Development",
       description: "Bring your ideas to life. We help you review, plan, and design innovative software solutions tailored to your needs..",
       buttonText: "Design your product",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 0
     },
     {
@@ -23,7 +23,7 @@ const ServicesSection = () => {
       title: "Hardware Manufacturing",
       description: "Turn your concepts into reality. From design to launch, we support the development of cutting-edge hardware solutions for your projects.",
       buttonText: "Build your hardware",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 0.2
     },
     {
@@ -31,7 +31,7 @@ const ServicesSection = () => {
       title: "Internet Services",
       description: "Stay connected with our reliable internet solutions. We ensure seamless integration and robust support for your online infrastructure",
       buttonText: "Explore services",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 0.4
     },
     {
@@ -39,7 +39,7 @@ const ServicesSection = () => {
       title: "Cloud Computing",
       description: "Streamline your business operations with our secure and scalable cloud solutions, ensuring efficiency and reliability",
       buttonText: "Optimize your cloud",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 0.6
     },
     {
@@ -47,7 +47,7 @@ const ServicesSection = () => {
       title: "IT Services",
       description: " Let us handle your IT needs while you focus on growing your business. We provide seamless IT management and support",
       buttonText: "Discover IT solutions",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 0.8
     },
     {
@@ -55,7 +55,7 @@ const ServicesSection = () => {
       title: "Consultation",
       description: "Get expert advice tailored to your unique business challenges. We help you find innovative solutions to achieve your goals",
       buttonText: "Schedule a consultation",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 1.0
     },
     {
@@ -63,7 +63,7 @@ const ServicesSection = () => {
       title: "Social Media Management",
       description: "Expand your digital footprint with our strategic social media management services. Boost your visibility and engagement effectively",
       buttonText: " Manage your social media",
-      mailto: "Techmakeeeasy0@gmail.com",
+      mailto: "Techmakeeasy0@gmail.com",
       delay: 1.2
     }
   ];

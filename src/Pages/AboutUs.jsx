@@ -3,7 +3,7 @@ import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import founder from "../assets/EasyMoney.jpg";
-import Logo from "../assets/Asset 4.png"
+
 
 const AboutUs = () => {
   return (
@@ -12,12 +12,9 @@ const AboutUs = () => {
       {/* Main Container */}
       <div className=" bg-white shadow-lg overflow-hidden ">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-purple-700 to-blue-400 text-white py-12 px-8 h-[50vh] flex flex-col justify-center item-center">
-          <div className="flex justify-center gap-3 ">
-            <h1 className="text-3xl font-bold mb-4"> About</h1>
-            <img src={Logo} alt="TechMakeEasy" className="sm:w-[14rem] sm:h-10 w-45 h-9" />
-          </div>
-          <p className="text-lg leading-relaxed text-center">
+        <div className="items-center bg-gradient-to-r from-blue-400 to-purple-700 h-[75vh] px-4 md:px-8 text-white py-12 flex flex-col justify-center item-center">
+            <h1 className="sm:text-5xl text-4xl font-bold mb-4 text-center"> About TechMakeEasy</h1>
+          <p className="text-lg leading-relaxed text-justify text-gray-200 ">
             Your one-stop solution for software development, hardware
             manufacturing, cloud computing, IT services, and more. Let us
             simplify technology for you.
@@ -25,18 +22,19 @@ const AboutUs = () => {
         </div>
 
         {/* Content Section */}
-        <div className="p-8 space-y-10">
+        <div className="py-16 px-4 md:px-32 space-y-10">
           {/* Founder Section */}
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <img
-              src={founder}
-              alt="Founder"
-              className="w-36 h-32 md:w-44 rounded-[100%] object-cover border-2 border-purple-600"
-            />
+          <div className="flex flex-col md:flex-row gap-6">
+           
             <div>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+              <h2 className="text-3xl font-semibold text-gray-800 mb-4">
                 Meet Our Founder
               </h2>
+              <img
+              src={founder}
+              alt="Founder"
+              className="w-36 h-32 md:w-56 md:h-52 rounded-[100%] object-cover border-2 border-purple-600 mb-4"
+            />
               <p className="text-gray-600 leading-relaxed">
                 Hi, I'm{" "}
                 <span className="text-purple-600 font-bold">
@@ -52,7 +50,7 @@ const AboutUs = () => {
 
           {/* Services Section */}
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               What We Offer
             </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,11 +106,11 @@ const AboutUs = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="text-center">
+          <div className="sm:text-center">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Connect With Us
             </h2>
-            <div className="flex justify-center items-center gap-6">
+            <div className="flex sm:justify-center items-center gap-6">
               {/* Instagram */}
               <a
                 href="https://instagram.com/tech_makeslifeeasy"

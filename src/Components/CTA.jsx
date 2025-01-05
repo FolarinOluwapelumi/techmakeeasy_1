@@ -18,7 +18,7 @@ export default function CTA() {
           <p className="text-white mb-6">Request a Service Today</p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
-              mailto="Techmakeeeasy0@gmail.com"
+              mailto="Techmakeeasy0@gmail.com"
               className="w-fit text-center bg-purple-500 px-6 py-3 font-bold
               transition-colors duration-300"
             >

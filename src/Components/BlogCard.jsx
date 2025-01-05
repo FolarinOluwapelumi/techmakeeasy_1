@@ -82,7 +82,7 @@ const BlogCard = ({
               <img 
                 src={author.avatar} 
                 alt={author.name}
-                className="w-12 h-12 rounded-full mr-3 object-cover"
+                className="w-12 h-10 rounded-full mr-3 object-cover"
               />
             )}
             <div>

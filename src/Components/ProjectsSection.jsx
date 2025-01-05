@@ -34,7 +34,7 @@ const ProjectsSection = () => {
           View all case studies
         </Button>
         <motion.a
-          href={`mailto:Techmakeeeasy0@gmail.com`}
+          href={`mailto:Techmakeeasy0@gmail.com`}
           className="text-gray-700 rounded-lg font-bold 
             hover:text-purple-500 transition-colors duration-300 flex items-center cursor-pointer"
           whileHover={{ scale: 1.05, x: 5 }}
