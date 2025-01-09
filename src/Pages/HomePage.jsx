@@ -21,7 +21,7 @@ const HomePage = () => {
         <h2 className="sm:text-5xl text-4xl font-bold text-center mb-6">
          Success Made Easy With <br /> TechMakeEasy.
         </h2>
-        <p className="text-justify leading-relaxed font-medium text-lg text-gray-200 sm:text-white max-w-lg">
+        <p className="sm:text-center text-justify leading-relaxed font-medium text-lg text-gray-200 sm:text-white max-w-lg">
           Transform your business with a well-designed website and innovative ideas that drive growth and engagement.
         </p>
       </main>

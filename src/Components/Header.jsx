@@ -1,21 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import Button from "./Button";
 import Logo from "../assets/Asset 3.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFollowDropdownOpen, setIsFollowDropdownOpen] = useState(false);
-  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
-  const contactDropdownRef = useRef(null);
 
   const instagramLink = "https://www.instagram.com/tech_makeslifeeasy";
-  const whatsappLink = "https://wa.me/yournumberhere"; // Replace with your WhatsApp number
 
-  // Handle clicking outside of menu and dropdowns
+  // Handle clicking outside of menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -26,14 +23,6 @@ const Header = () => {
       ) {
         setIsMenuOpen(false);
       }
-
-      if (
-        isContactDropdownOpen &&
-        contactDropdownRef.current &&
-        !contactDropdownRef.current.contains(event.target)
-      ) {
-        setIsContactDropdownOpen(false);
-      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -43,7 +32,7 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, [isMenuOpen, isContactDropdownOpen]);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,43 +45,17 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const ContactDropdown = ({ isMobile }) => (
-    <div 
-      ref={!isMobile ? contactDropdownRef : null}
-      className={`${
-        isMobile 
-          ? "mt-2 ml-4" 
-          : "absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10"
-      }`}
-    >
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center ${
-          isMobile 
-            ? "text-purple-600 hover:text-purple-500 mb-4" 
-            : "px-4 py-2 text-purple-600 hover:bg-purple-50"
-        }`}
-      >
-        <FaWhatsapp className="w-5 h-5 mr-2" />
-        WhatsApp
-      </a>
-      <a
-        href={instagramLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center ${
-          isMobile 
-            ? "text-purple-600 hover:text-purple-500" 
-            : "px-4 py-2 text-purple-600 hover:bg-purple-50"
-        }`}
-      >
-        <FaInstagram className="w-5 h-5 mr-2" />
-        Instagram
-      </a>
-    </div>
-  );
+  // Handle body scroll lock when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -117,7 +80,7 @@ const Header = () => {
           {/* Follow Us Dropdown */}
           <div className="relative">
             <button
-              onClick={() => setIsFollowDropdownOpen(!isFollowDropdownOpen)}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               className="flex items-center hover:text-purple-500 focus:outline-none"
             >
               Follow Us
@@ -136,7 +99,7 @@ const Header = () => {
               </svg>
             </button>
 
-            {isFollowDropdownOpen && (
+            {isDropdownOpen && (
               <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
                 <a
                   href={instagramLink}
@@ -152,18 +115,18 @@ const Header = () => {
           </div>
         </nav>
 
-        <div className="relative hidden sm:block">
-          <div onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}>
-            <Button className="border-2 border-blue-700 border-l-0 border-r-0 border-t-0">
-              Contact Us
-            </Button>
-          </div>
-          {isContactDropdownOpen && <ContactDropdown isMobile={false} />}
+        <div>
+          <Button
+            mailto="Techmakeeasy0@gmail.com"
+            className="hidden sm:flex border-2 border-blue-700 border-l-0 border-r-0 border-t-0"
+          >
+            Contact Us
+          </Button>
         </div>
 
         <button
           ref={buttonRef}
-          className="block md:hidden text-purple-800 font-bold sm:text-white focus:outline-none"
+          className="block md:hidden text-purple-800 font-bold sm:text-white focus:outline-none transition-transform duration-300 ease-in-out"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
@@ -172,7 +135,9 @@ const Header = () => {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
-            className="w-6 h-6"
+            className={`w-6 h-6 transform transition-transform duration-300 ${
+              isMenuOpen ? 'rotate-90' : ''
+            }`}
           >
             <path
               strokeLinecap="round"
@@ -183,96 +148,99 @@ const Header = () => {
         </button>
       </header>
 
-      {/* Mobile menu with overlay and slide animation */}
-      {isMenuOpen && (
-        <>
-          {/* Dark overlay */}
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 md:hidden"
+      {/* Mobile menu with overlay and enhanced slide animation */}
+      <div 
+        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Side menu with enhanced animation */}
+      <div
+        ref={menuRef}
+        className={`fixed top-0 left-0 w-64 h-screen bg-white md:hidden transform transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-x-0 shadow-lg' : '-translate-x-full'
+        }`}
+        style={{
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden',
+        }}
+      >
+        <nav className="flex flex-col mt-6 space-y-10 p-6 font-bold text-purple-500">
+          <Link
+            to="/"
+            className="hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2"
             onClick={() => setIsMenuOpen(false)}
-          />
-
-          {/* Side menu */}
-          <div
-            ref={menuRef}
-            className={`fixed top-0 left-0 w-64 h-screen bg-white md:hidden transform transition-transform duration-300 ease-in-out ${
-              isMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
           >
-            <nav className="flex flex-col mt-20 space-y-10 p-6 font-bold text-purple-500 font-">
-              <Link
-                to="/"
-                className="hover:text-purple-500"
+            Home
+          </Link>
+          <Link
+            to="/blog"
+            className="hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Blog
+          </Link>
+          <Link
+            to="/about-us"
+            className="hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About Us
+          </Link>
+
+          {/* Mobile Follow Us dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center hover:text-purple-500 focus:outline-none transform transition-transform duration-200 hover:translate-x-2"
+            >
+              Follow Us
+              <svg
+                className={`w-5 h-5 font-bold ml-0.5 transition-transform duration-300 ${
+                  isDropdownOpen ? 'rotate-90' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+
+            <div
+              className={`mt-2 ml-4 transition-all duration-300 ease-in-out ${
+                isDropdownOpen ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'
+              }`}
+            >
+              <a
+                href={instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-purple-600 hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
-              </Link>
-              <Link
-                to="/blog"
-                className="hover:text-purple-500"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
-              </Link>
-              <Link
-                to="/about-us"
-                className="hover:text-purple-500"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About Us
-              </Link>
-
-              {/* Mobile Follow Us dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsFollowDropdownOpen(!isFollowDropdownOpen)}
-                  className="flex items-center hover:text-purple-500 focus:outline-none"
-                >
-                  Follow Us
-                  <svg
-                    className="w-5 h-5 font-bold ml-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-
-                {isFollowDropdownOpen && (
-                  <div className="mt-2 ml-4">
-                    <a
-                      href={instagramLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-purple-600 hover:text-purple-500"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <FaInstagram className="w-5 h-5 mr-2" />
-                      Instagram
-                    </a>
-                  </div>
-                )}
-              </div>
-
-              {/* Mobile Contact Us dropdown */}
-              <div className="relative">
-                <div onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}>
-                  <Button className="border-2 border-blue-700 border-l-0 border-r-0 border-t-0">
-                    Contact Us
-                  </Button>
-                </div>
-                {isContactDropdownOpen && <ContactDropdown isMobile={true} />}
-              </div>
-            </nav>
+                <FaInstagram className="w-5 h-5 mr-2" />
+                Instagram
+              </a>
+            </div>
           </div>
-        </>
-      )}
+
+          <Button
+            mailto="Techmakeeasy0@gmail.com"
+            className="mt-6 w-fit border-2 border-white border-l-0 border-r-0 border-t-0 transform transition-transform duration-200 hover:translate-x-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact Us
+          </Button>
+        </nav>
+      </div>
     </>
   );
 };

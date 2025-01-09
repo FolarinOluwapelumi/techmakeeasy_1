@@ -14,7 +14,7 @@ const AboutUs = () => {
         {/* Hero Section */}
         <div className="items-center bg-gradient-to-r from-blue-400 to-purple-700 h-[75vh] px-4 md:px-8 text-white py-12 flex flex-col justify-center item-center">
             <h1 className="sm:text-5xl text-4xl font-bold mb-4 text-center"> About TechMakeEasy</h1>
-          <p className="text-lg leading-relaxed text-justify text-gray-200 ">
+          <p className="text-lg leading-relaxed sm:text-center text-justify text-gray-200 ">
             Your one-stop solution for software development, hardware
             manufacturing, cloud computing, IT services, and more. Let us
             simplify technology for you.
@@ -131,7 +131,7 @@ const AboutUs = () => {
               </a>
               {/* Email */}
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:Techmakeeasy0@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 text-3xl hover:text-purple-800 transition-transform duration-500 transform hover:scale-125"
