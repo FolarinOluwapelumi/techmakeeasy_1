@@ -35,7 +35,7 @@ const AboutUs = () => {
               alt="Founder"
               className="w-36 h-32 md:w-56 md:h-52 rounded-[100%] object-cover border-2 border-purple-600 mb-4"
             />
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-200 sm:text-white leading-relaxed">
                 Hi, I'm{" "}
                 <span className="text-purple-600 font-bold">
                   Shaibu Akoji Israel
