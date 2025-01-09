@@ -14,7 +14,7 @@ const AboutUs = () => {
         {/* Hero Section */}
         <div className="items-center bg-gradient-to-r from-blue-400 to-purple-700 h-[75vh] px-4 md:px-8 text-white py-12 flex flex-col justify-center item-center">
             <h1 className="sm:text-5xl text-4xl font-bold mb-4 text-center"> About TechMakeEasy</h1>
-          <p className="text-lg leading-relaxed sm:text-center text-justify text-gray-200 ">
+          <p className="text-lg leading-relaxed sm:text-center text-justify text-gray-200 sm:text-white ">
             Your one-stop solution for software development, hardware
             manufacturing, cloud computing, IT services, and more. Let us
             simplify technology for you.
@@ -35,7 +35,7 @@ const AboutUs = () => {
               alt="Founder"
               className="w-36 h-32 md:w-56 md:h-52 rounded-[100%] object-cover border-2 border-purple-600 mb-4"
             />
-              <p className="text-gray-200 sm:text-white leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Hi, I'm{" "}
                 <span className="text-purple-600 font-bold">
                   Shaibu Akoji Israel
