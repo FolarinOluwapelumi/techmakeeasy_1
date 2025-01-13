@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import Button from "./Button";
 import Logo from "../assets/Asset 3.svg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isFollowDropdownOpen, setIsFollowDropdownOpen] = useState(false);
+  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
   const instagramLink = "https://www.instagram.com/tech_makeslifeeasy";
+  const whatsappLink = "https://wa.me/08106332177"; 
+  const emailAddress = "Techmakeeasy0@gmail.com";
 
   // Handle clicking outside of menu
   useEffect(() => {
@@ -45,7 +48,6 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Handle body scroll lock when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -80,12 +82,14 @@ const Header = () => {
           {/* Follow Us Dropdown */}
           <div className="relative">
             <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              onClick={() => setIsFollowDropdownOpen(!isFollowDropdownOpen)}
               className="flex items-center hover:text-purple-500 focus:outline-none"
             >
               Follow Us
               <svg
-                className="w-5 h-5 font-bold ml-0.5"
+                className={`w-5 h-5 font-bold ml-0.5 transition-transform duration-300 ${
+                  isFollowDropdownOpen ? 'rotate-90' : ''
+                }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -99,7 +103,7 @@ const Header = () => {
               </svg>
             </button>
 
-            {isDropdownOpen && (
+            {isFollowDropdownOpen && (
               <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
                 <a
                   href={instagramLink}
@@ -115,13 +119,52 @@ const Header = () => {
           </div>
         </nav>
 
-        <div>
-          <Button
-            mailto="Techmakeeasy0@gmail.com"
-            className="hidden sm:flex border-2 border-blue-700 border-l-0 border-r-0 border-t-0"
+        {/* Contact Us Dropdown */}
+        <div className="relative hidden sm:block">
+          <div
+            onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
+            className="cursor-pointer"
           >
-            Contact Us
-          </Button>
+            <Button className="flex items-center border-2 border-blue-700 border-l-0 border-r-0 border-t-0">
+              Contact Us
+              <svg
+                className={`w-5 h-5 font-bold ml-0.5 transition-transform duration-300 ${
+                  isContactDropdownOpen ? 'rotate-90' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Button>
+          </div>
+
+          {isContactDropdownOpen && (
+            <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
+              <a
+                href={`mailto:${emailAddress}`}
+                className="flex items-center px-4 py-2 text-purple-600 hover:bg-purple-50"
+              >
+                <FaEnvelope className="w-5 h-5 mr-2" />
+                Email
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center px-4 py-2 text-purple-600 hover:bg-purple-50"
+              >
+                <FaWhatsapp className="w-5 h-5 mr-2" />
+                WhatsApp
+              </a>
+            </div>
+          )}
         </div>
 
         <button
@@ -148,7 +191,7 @@ const Header = () => {
         </button>
       </header>
 
-      {/* Mobile menu with overlay and enhanced slide animation */}
+      {/* Mobile menu overlay */}
       <div 
         className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'opacity-50 visible' : 'opacity-0 invisible'
@@ -156,7 +199,7 @@ const Header = () => {
         onClick={() => setIsMenuOpen(false)}
       />
 
-      {/* Side menu with enhanced animation */}
+      {/* Mobile side menu */}
       <div
         ref={menuRef}
         className={`fixed top-0 left-0 w-64 h-screen bg-white md:hidden transform transition-all duration-300 ease-in-out ${
@@ -193,13 +236,13 @@ const Header = () => {
           {/* Mobile Follow Us dropdown */}
           <div className="relative">
             <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              onClick={() => setIsFollowDropdownOpen(!isFollowDropdownOpen)}
               className="flex items-center hover:text-purple-500 focus:outline-none transform transition-transform duration-200 hover:translate-x-2"
             >
               Follow Us
               <svg
                 className={`w-5 h-5 font-bold ml-0.5 transition-transform duration-300 ${
-                  isDropdownOpen ? 'rotate-90' : ''
+                  isFollowDropdownOpen ? 'rotate-90' : ''
                 }`}
                 fill="none"
                 stroke="currentColor"
@@ -216,7 +259,7 @@ const Header = () => {
 
             <div
               className={`mt-2 ml-4 transition-all duration-300 ease-in-out ${
-                isDropdownOpen ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'
+                isFollowDropdownOpen ? 'opacity-100 max-h-20' : 'opacity-0 max-h-0 overflow-hidden'
               }`}
             >
               <a
@@ -232,13 +275,55 @@ const Header = () => {
             </div>
           </div>
 
-          <Button
-            mailto="Techmakeeasy0@gmail.com"
-            className="mt-6 w-fit border-2 border-white border-l-0 border-r-0 border-t-0 transform transition-transform duration-200 hover:translate-x-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact Us
-          </Button>
+          {/* Mobile Contact Us dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setIsContactDropdownOpen(!isContactDropdownOpen)}
+              className="flex items-center hover:text-purple-500 focus:outline-none transform transition-transform duration-200 hover:translate-x-2"
+            >
+              Contact Us
+              <svg
+                className={`w-5 h-5 font-bold ml-0.5 transition-transform duration-300 ${
+                  isContactDropdownOpen ? 'rotate-90' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+
+            <div
+              className={`mt-2 ml-4 transition-all duration-300 ease-in-out ${
+                isContactDropdownOpen ? 'opacity-100 max-h-20 pt-2' : 'opacity-0 max-h-0 overflow-hidden'
+              }`}
+            >
+              <a
+                href={`mailto:${emailAddress}`}
+                className="flex items-center text-purple-600 hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2 mb-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaEnvelope className="w-5 h-5 mr-2" />
+                Email
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-purple-600 hover:text-purple-500 transform transition-transform duration-200 hover:translate-x-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FaWhatsapp className="w-5 h-5 mr-2" />
+                WhatsApp
+              </a>
+            </div>
+          </div>
         </nav>
       </div>
     </>

@@ -28,7 +28,7 @@ const Footer = () => {
   };
   
  // WhatsApp link with your phone number
- const whatsappLink = "https://wa.me/2347068380789";
+ const whatsappLink = "https://wa.me/2348106332177";
  // Instagram profile link
  const instagramLink = "https://www.instagram.com/tech_makeslifeeasy";
 

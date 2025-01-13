@@ -3,6 +3,7 @@ import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import founder from "../assets/EasyMoney.jpg";
+import AboutUsHero from "../Components/AboutUsHero";
 
 
 const AboutUs = () => {
@@ -11,15 +12,7 @@ const AboutUs = () => {
       <Header />
       {/* Main Container */}
       <div className=" bg-white shadow-lg overflow-hidden ">
-        {/* Hero Section */}
-        <div className="items-center bg-gradient-to-r from-blue-400 to-purple-700 h-[75vh] px-4 md:px-8 text-white py-12 flex flex-col justify-center item-center">
-            <h1 className="sm:text-5xl text-4xl font-bold mb-4 text-center"> About TechMakeEasy</h1>
-          <p className="text-lg leading-relaxed sm:text-center text-justify text-gray-200 sm:text-white ">
-            Your one-stop solution for software development, hardware
-            manufacturing, cloud computing, IT services, and more. Let us
-            simplify technology for you.
-          </p>
-        </div>
+       <AboutUsHero />
 
         {/* Content Section */}
         <div className="py-16 px-4 md:px-32 space-y-10">
@@ -122,7 +115,7 @@ const AboutUs = () => {
               </a>
               {/* WhatsApp */}
               <a
-                href="https://wa.me/07068380789"
+                href="https://wa.me/08106332177"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-purple-600 text-3xl hover:text-purple-800 transition-transform duration-500 transform hover:scale-125"
