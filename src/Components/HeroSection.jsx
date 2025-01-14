@@ -11,16 +11,16 @@ const HeroSection = () => {
           <TypeAnimation
             sequence={[
               'Success Made Easy',
-              1000,
+              3000,
               'Success Made Simple',
-              1000,
-              'Success Made Possible',
-              1000,
-              'Success Made Easy With TechMakeEasy',
               2000,
+              'Success Made Possible',
+              2000,
+              'Success Made Easy With TechMakeEasy',
+              3000,
             ]}
             wrapper="span"
-            speed={30}
+            speed={10}
             repeat={Infinity}
           />
         </h2>

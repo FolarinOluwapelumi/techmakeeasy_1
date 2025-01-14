@@ -11,16 +11,16 @@ const AboutUsHero = () => {
           <TypeAnimation
             sequence={[
               'About TechMakeEasy',
-              1000,
+              3000,
               'Our Story',
-              1000,
-              'Our Mission',
-              1000,
-              'About TechMakeEasy',
               2000,
+              'Our Mission',
+              2000,
+              'About TechMakeEasy',
+              3000,
             ]}
             wrapper="span"
-            speed={30}
+            speed={50}
             repeat={Infinity}
           />
         </h2>
