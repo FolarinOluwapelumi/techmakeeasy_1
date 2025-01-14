@@ -12,7 +12,7 @@ const Header = () => {
   const buttonRef = useRef(null);
 
   const instagramLink = "https://www.instagram.com/tech_makeslifeeasy";
-  const whatsappLink = "https://wa.me/08106332177"; 
+  const whatsappLink = "https://wa.me/23408106332177"; 
   const emailAddress = "Techmakeeasy0@gmail.com";
 
   // Handle clicking outside of menu
