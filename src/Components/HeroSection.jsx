@@ -31,7 +31,7 @@ const HeroSection = () => {
 
       {/* Illustration Section */}
       <div className="flex-1 flex justify-center items-center">
-       <img src={hero} className="sm:h-[80vh]"/>
+       <img src={hero} className="sm:h-[79vh]"/>
       </div>
     </main>
   );

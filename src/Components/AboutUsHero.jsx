@@ -20,7 +20,7 @@ const AboutUsHero = () => {
               3000,
             ]}
             wrapper="span"
-            speed={50}
+            speed={10}
             repeat={Infinity}
           />
         </h2>
