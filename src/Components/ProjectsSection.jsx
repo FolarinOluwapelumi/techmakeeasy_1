@@ -13,7 +13,7 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section className="py-12 px-4 md:px-32 bg-white">
+    <section className="py-12 px-4 bg-white">
       <h2 className="text-3xl font-bold text-purple-500 mb-4">Products we built</h2>
       <p className="text-gray-700 text-lg mb-3 max-w-[17rem] md:max-w-full">
         We deliver reliable, high-quality software with the perfect blend of

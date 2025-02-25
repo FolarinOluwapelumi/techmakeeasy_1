@@ -45,7 +45,7 @@ const BlogSection = () => {
   ];
 
   return (
-    <div className="bg-white py-10 px-4 md:px-32">
+    <div className="bg-white py-10 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-left mb-12"

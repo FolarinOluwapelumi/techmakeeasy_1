@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between items-center bg-white shadow-black-md p-3 md:px-40 text-purple-600 fixed w-full z-40 shadow-md">
+      <header className="flex justify-between items-center bg-white shadow-black-md p-3 sm:px-[3rem] text-purple-600 fixed w-full z-40 shadow-md">
         <div className="flex items-center">
           <Link to="/">
             <img src={Logo} alt="TechMakeEasy" className="w-45 h-5" />

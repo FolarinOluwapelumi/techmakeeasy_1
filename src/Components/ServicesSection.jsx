@@ -69,7 +69,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-32 bg-gray-50 text-left">
+    <section className="py-16 px-4 text-left">
       <h2 className="text-3xl font-bold text-purple-500  mb-4">
         We help you transform your ideas to products that people use.
       </h2>
