@@ -61,7 +61,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between items-center bg-white shadow-black-md p-3 md:px-40 text-purple-600 fixed w-full z-50 shadow-md">
+      <header className="flex justify-between items-center bg-white shadow-black-md p-3 md:px-40 text-purple-600 fixed w-full z-40 shadow-md">
         <div className="flex items-center">
           <Link to="/">
             <img src={Logo} alt="TechMakeEasy" className="w-45 h-5" />
@@ -202,7 +202,7 @@ const Header = () => {
       {/* Mobile side menu */}
       <div
         ref={menuRef}
-        className={`fixed top-0 left-0 w-64 h-screen bg-white md:hidden transform transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-64 h-screen bg-white md:hidden transform transition-all duration-300 ease-in-out z-50 ${
           isMenuOpen ? 'translate-x-0 shadow-lg' : '-translate-x-full'
         }`}
         style={{
